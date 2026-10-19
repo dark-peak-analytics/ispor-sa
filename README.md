@@ -44,8 +44,10 @@ source("example3-ellmer-report.R")
 
 This is a simple teaching example. The scripts show how to call a large language model via an API and draft a results paragraph from a small deterministic cost-effectiveness table. They are classroom demonstrations. Check every number and sentence before model output is used in any real piece of work.
 
-## Lead author
+## Authors
 
 Dr Robert Smith is the lead author of these materials. He is a health economist and Managing Director of [Dark Peak Analytics](https://darkpeakanalytics.com/). His work applies methods from data science to health economics, including script-based decision models, web interfaces that make those models easier to inspect, and training in R.
+
+Dr Carina Behr is an author of these materials. She is a Senior Health Economist at [Dark Peak Analytics](https://darkpeakanalytics.com/). Her work covers health-economic evaluation, including cost-effectiveness and microsimulation models in R, and training.
 
 [Dark Peak Analytics](https://darkpeakanalytics.com/) is a UK consultancy working at the intersection of health economics, data science, and public health. It builds health-economic models in R, including web-based interfaces, and runs training on R and Shiny for health economics and related fields.
