@@ -83,4 +83,11 @@ doc <- build_results_doc(table_out, results_text)
 print(doc, target = "results-report.docx")
 
 # Open the report in the default viewer
-shell.exec(normalizePath("results-report.docx"))
+report_path <- normalizePath("results-report.docx")
+if (.Platform$OS.type == "windows") {
+  shell.exec(report_path)
+} else if (Sys.info()[["sysname"]] == "Darwin") {
+  system2("open", shQuote(report_path), wait = FALSE)
+} else {
+  system2("xdg-open", shQuote(report_path), wait = FALSE)
+}
