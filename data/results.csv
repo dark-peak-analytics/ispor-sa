@@ -1,0 +1,6 @@
+strategy,total_cost_gbp,total_qalys,comparator,incremental_cost_gbp,incremental_qalys,icer_gbp_per_qaly,status
+Standard care,10000,5.00,,,,,Reference
+Drug Y,13000,4.95,Standard care,3000,-0.05,,Dominated
+Drug X,16000,5.20,Standard care,6000,0.20,30000,Extendedly dominated
+Drug Z,22000,5.60,Standard care,12000,0.60,20000,On frontier
+Combination,40000,5.80,Drug Z,18000,0.20,90000,On frontier
