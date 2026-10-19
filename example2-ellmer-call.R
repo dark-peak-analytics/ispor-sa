@@ -1,4 +1,7 @@
-# Ellmer API calls example
+# This script calls Gemini through ellmer, which handles the API key and request
+# for you. It reads the cost-effectiveness results in data/results.csv, fills
+# the template in prompts/results_prompt.md, and sends that prompt to the model.
+# The reply is plain text describing the results.
 
 # 1. Set up ------------------------------------------------------------------
 rm(list = ls())
@@ -21,12 +24,12 @@ chat <- chat_google_gemini(model = model, system_prompt = system_prompt, params 
 
 # 4. Read in the data --------------------------------------------------------
 # create data as text to pass into the chat
-csv_text <- paste(readLines("results.csv"), collapse = "\n")
+csv_text <- paste(readLines("data/results.csv"), collapse = "\n")
 
 # 5. Build the prompt --------------------------------------------------------
 # We can then pass data into the chat
 prompt <- interpolate_file(
-  "results_prompt.md",
+  "prompts/results_prompt.md",
   data = csv_text,
   threshold = "£20,000 to £30,000",
   n_paragraphs = 2,

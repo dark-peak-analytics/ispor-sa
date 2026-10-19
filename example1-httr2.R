@@ -1,3 +1,9 @@
+# This script calls the Gemini API directly with httr2. It reads the API key
+# from GEMINI_API_KEY, then defines a function that sends one prompt and returns
+# the reply text, retrying on rate limits and temporary outages. It asks for a
+# one-sentence fact about the letter A, then repeats the call for every letter
+# of the alphabet and stores the replies in a named list.
+
 # 1. Set up ------------------------------------------------------------------
 rm(list = ls())
 # install.packages("httr2")

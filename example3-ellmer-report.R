@@ -1,4 +1,7 @@
-# Generate the results text with Gemini, then write a Word report with officer
+# This script writes a short Word report from the cost-effectiveness results.
+# It uses ellmer to ask Gemini for a structured reply (a status and a paragraph),
+# and stops if the model cannot interpret the data. It then formats the CSV as
+# a table and, with officer, saves results-report.docx and opens it.
 
 # 1. Set up ------------------------------------------------------------------
 # Install the packages if they are not already installed
@@ -20,7 +23,7 @@ source("R/build_results_doc.R")
 system_prompt <- paste(readLines("prompts/ellmer-with-report-system-prompt.md"), collapse = " ")
 
 # Read in the data and set parameters
-data_file <- "results.csv"
+data_file <- "data/results.csv"
 csv_text <- paste(readLines(data_file), collapse = "\n")
 temperature <- 0
 model <- "gemini-2.5-flash"
@@ -38,7 +41,7 @@ chat <- chat_google_gemini(
 # 4. Build the prompt --------------------------------------------------------
 # Create the prompt for the API call from the template and data
 prompt <- interpolate_file(
-  "results_prompt.md",
+  "prompts/results_prompt.md",
   data = csv_text,
   threshold = "£20,000 to £30,000",
   table_ref = "Table 1",
